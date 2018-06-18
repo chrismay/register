@@ -1,5 +1,5 @@
 import { SystemState, systemStateReducer } from "./System";
-import { Reducer, combineReducers } from "redux";
+import { Reducer, combineReducers, Dispatch, Action } from "redux";
 import { firebaseReducer } from "react-redux-firebase";
 
 export interface RegisterAppState {
@@ -13,3 +13,9 @@ export const rootReducer: Reducer<RegisterAppState> = combineReducers<
   firebase: firebaseReducer,
   system: systemStateReducer
 });
+
+export interface ConnectedReduxProps<S> {
+  // Correct types for the `dispatch` prop passed by `react-redux`.
+  // Additional type information is given through generics.
+  dispatch: Dispatch<Action<S>>;
+}
