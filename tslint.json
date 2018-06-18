@@ -1,0 +1,22 @@
+{
+  "defaultSeverity": "warning",
+  "extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"],
+  "linterOptions": {
+    "exclude": ["config/**/*.js", "node_modules/**/*.ts"]
+  },
+  "rules": {
+    "interface-name": [true, "never-prefix"],
+    "jsx-no-lambda": false,
+    "object-literal-sort-keys": false,
+    "max-classes-per-file": [true, 5, "exclude-class-expressions"],
+    "ordered-imports": false,
+    "no-console": false,
+    "variable-name": [
+      true,
+      "allow-pascal-case",
+      "ban-keywords",
+      "check-format",
+      "allow-leading-underscore"
+    ]
+  }
+}
