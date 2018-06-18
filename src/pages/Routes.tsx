@@ -5,7 +5,7 @@ import { PeoplePage } from "./People";
 export function Routes() {
   return (
     <Switch>
-      <Route exact={true} path="/" render={() => <div>Stuff goes here</div>} />
+      <Route exact={true} path="/" render={() => <div>Homepage</div>} />
       <Route path="/people" render={() => <PeoplePage/>} />
     </Switch>
   );
