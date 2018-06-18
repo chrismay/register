@@ -7,9 +7,10 @@ import SignInScreen from "./components/LoginScreen";
 import { connect } from "react-redux";
 import { isLoaded } from "react-redux-firebase";
 import Spinner from "./components/Spinner";
-import { Routes } from "./pages/Routes";
+import Routes from "./pages/Routes";
 import { BottomNavigation, BottomNavigationAction } from "@material-ui/core";
 import FavoriteIcon from "@material-ui/icons/Favorite";
+import { withRouter } from "react-router";
 
 type AuthState = Partial<{
   uid: string;
@@ -66,6 +67,6 @@ function mapStateToProps(state: AuthContainer): Props {
   return { auth: state.firebase.auth };
 }
 
-const App: React.ComponentType<{}> = connect(mapStateToProps)(AppComponent);
+const App = withRouter(connect(mapStateToProps)(AppComponent) as any);
 
 export default App;

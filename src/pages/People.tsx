@@ -1,10 +1,15 @@
 import * as React from "react";
 import { List } from "@material-ui/core";
 import Person from "../components/Person";
+import { match } from "react-router";
 
-export function PeoplePage() {
+interface SectionId {
+  section: string;
+}
+const PeoplePage = (props: { match: match<SectionId> }) => {
   return (
     <div>
+      <p>({props.match.params.section})</p>
       <List>
         <Person name="Chris May" />
         <Person name="Laurence May" />
@@ -13,4 +18,6 @@ export function PeoplePage() {
       </List>
     </div>
   );
-}
+};
+
+export default PeoplePage;

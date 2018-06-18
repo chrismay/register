@@ -3,24 +3,26 @@ import { ListItemText } from "@material-ui/core";
 import { Avatar } from "@material-ui/core";
 import { ListItem } from "@material-ui/core";
 import GroupIcon from "@material-ui/icons/Group";
-import { RegisterAppState, ConnectedReduxProps } from "../domain";
+import { RegisterAppState } from "../domain";
 import { connect } from "react-redux";
-import { push } from "connected-react-router";
+import { Link } from "react-router-dom";
 
-interface Props extends ConnectedReduxProps<RegisterAppState> {
+interface Props {
   name: string;
   label: string;
 }
 
 function Section(props: Props) {
-  const { name, label, dispatch } = props;
+  const { name, label } = props;
   return (
-    <ListItem onClick={() => dispatch(push(`/people/${name}`))}>
-      <Avatar>
-        <GroupIcon />
-      </Avatar>
-      <ListItemText primary={label} secondary="" />
-    </ListItem>
+    <Link to={`/people/${name}`} style={{ textDecoration: "none" }}>
+      <ListItem>
+        <Avatar>
+          <GroupIcon />
+        </Avatar>
+        <ListItemText primary={label} secondary="" />
+      </ListItem>
+    </Link>
   );
 }
 
