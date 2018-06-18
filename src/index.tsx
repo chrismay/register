@@ -16,6 +16,8 @@ import {
   routerMiddleware,
   ConnectedRouter
 } from "connected-react-router";
+import { rootReducer } from "./domain";
+import { notifyUpdateAvailable } from "./domain/System";
 
 const history = createBrowserHistory();
 
@@ -27,14 +29,6 @@ const fbConfig = {
   storageBucket: "",
   messagingSenderId: "325992862414"
 };
-
-import { combineReducers } from "redux";
-import { firebaseReducer } from "react-redux-firebase";
-
-// Add firebase to reducers
-const rootReducer = combineReducers({
-  firebase: firebaseReducer
-});
 
 firebase.initializeApp(fbConfig);
 
@@ -67,7 +61,8 @@ ReactDOM.render(
   document.getElementById("root") as HTMLElement
 );
 
-function onAppUpdateAvailable(){
+function onAppUpdateAvailable() {
+  store.dispatch(notifyUpdateAvailable());
   console.log("Application update available; please refresh!");
 }
 

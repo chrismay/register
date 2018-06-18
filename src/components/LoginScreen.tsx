@@ -2,8 +2,8 @@ import * as React from "react";
 import { StyledFirebaseAuth } from "react-firebaseui";
 
 import * as firebase from "firebase/app";
-import 'firebase/auth';
-import 'firebase/database';
+import "firebase/auth";
+import "firebase/database";
 
 // Configure FirebaseUI.
 const uiConfig = {
@@ -18,17 +18,12 @@ const uiConfig = {
   ]
 };
 
-export class SignInScreen extends React.Component {
-  public render() {
-    return (
-      <div>
-        <h1>My App</h1>
-        <p>Please sign-in:</p>
-        <StyledFirebaseAuth
-          uiConfig={uiConfig}
-          firebaseAuth={firebase.auth()}
-        />
-      </div>
-    );
-  }
-}
+const SignInScreen = () => (
+  <div>
+    <h1>Register</h1>
+    <p>Please sign-in:</p>
+    <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
+  </div>
+);
+
+export default SignInScreen;

@@ -1,6 +1,9 @@
 import * as React from "react";
-export const Spinner = ()=>(
-    <div>
+
+const Spinner: React.SFC<{}> = () => (
+  <div>
     <i>Loading...</i>
   </div>
 );
+
+export default Spinner;

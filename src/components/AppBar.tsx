@@ -1,12 +1,12 @@
-import * as React from "react";
-import { withStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
+import IconButton from "@material-ui/core/IconButton";
+import { withStyles } from "@material-ui/core/styles";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
-import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
-import NewReleases from "@material-ui/icons/NewReleases";
-import { Tooltip } from "@material-ui/core";
+import * as React from "react";
+
+import UpdateNotification from "./UpdateNotification";
 
 const styles = {
   root: {
@@ -38,11 +38,7 @@ function ButtonAppBar(props: { classes: any }) {
             Register
           </Typography>
           <div>
-          <Tooltip id="tooltip-icon" title="New version! Reload to update">
-            <IconButton onClick={() => location.reload()} color="secondary">
-              <NewReleases />
-            </IconButton>
-            </Tooltip>
+            <UpdateNotification />
           </div>
         </Toolbar>
       </AppBar>
