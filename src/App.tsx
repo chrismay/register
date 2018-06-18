@@ -7,6 +7,9 @@ import { SignInScreen } from "./components/LoginScreen";
 import { connect } from "react-redux";
 import { isLoaded } from "react-redux-firebase";
 import { Spinner } from "./components/Spinner";
+import { Routes } from "./pages/Routes";
+import { BottomNavigation, BottomNavigationAction } from "@material-ui/core";
+import FavoriteIcon from "@material-ui/icons/Favorite";
 
 type AuthState = Partial<{
   uid: string;
@@ -16,12 +19,12 @@ interface Props {
   auth: AuthState;
 }
 
+
 const AppComponent: React.SFC<Props> = props => {
   const auth = props.auth;
   console.log(auth);
   if (!isLoaded(auth)) {
-    return (<Spinner/>
-    );
+    return <Spinner />;
   }
   if (auth.uid) {
     return (
@@ -29,7 +32,16 @@ const AppComponent: React.SFC<Props> = props => {
         <CssBaseline />
         <div className="App">
           <AppBar />
-          <p className="App-intro">Stuff goes here</p>
+          <Routes />
+          <BottomNavigation
+            style={{
+              position: "absolute",
+              bottom: 0,
+              width: "100%"
+            }}
+          >
+            <BottomNavigationAction label="Something" icon={<FavoriteIcon />} />
+          </BottomNavigation>
         </div>
       </>
     );
