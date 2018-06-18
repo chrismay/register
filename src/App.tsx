@@ -1,7 +1,6 @@
 import * as React from "react";
 import "./App.css";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import AppBar from "./components/AppBar";
 import SignInScreen from "./components/LoginScreen";
 
 import { connect } from "react-redux";
@@ -30,7 +29,6 @@ const AppComponent: React.SFC<Props> = props => {
       <>
         <CssBaseline />
         <div className="App">
-          <AppBar />
           <Routes />
           <BottomNavigation
             style={{
