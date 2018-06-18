@@ -6,6 +6,7 @@ import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import NewReleases from "@material-ui/icons/NewReleases";
+import { Tooltip } from "@material-ui/core";
 
 const styles = {
   root: {
@@ -37,9 +38,11 @@ function ButtonAppBar(props: { classes: any }) {
             Register
           </Typography>
           <div>
+          <Tooltip id="tooltip-icon" title="New version! Reload to update">
             <IconButton onClick={() => location.reload()} color="secondary">
               <NewReleases />
             </IconButton>
+            </Tooltip>
           </div>
         </Toolbar>
       </AppBar>

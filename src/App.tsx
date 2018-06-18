@@ -22,7 +22,6 @@ interface Props {
 
 const AppComponent: React.SFC<Props> = props => {
   const auth = props.auth;
-  console.log(auth);
   if (!isLoaded(auth)) {
     return <Spinner />;
   }

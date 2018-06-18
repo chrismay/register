@@ -66,4 +66,9 @@ ReactDOM.render(
   </Provider>,
   document.getElementById("root") as HTMLElement
 );
-registerServiceWorker();
+
+function onAppUpdateAvailable(){
+  console.log("Application update available; please refresh!");
+}
+
+registerServiceWorker(onAppUpdateAvailable);
