@@ -7,6 +7,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import * as React from "react";
 
 import UpdateNotification from "./UpdateNotification";
+import UserIcon from "./UserIcon";
 
 const styles = {
   root: {
@@ -21,7 +22,7 @@ const styles = {
   }
 };
 
-function ButtonAppBar(props: { classes: any }) {
+function AppMenuBar(props: { classes: any }) {
   const { classes } = props;
   return (
     <div className={classes.root}>
@@ -39,6 +40,7 @@ function ButtonAppBar(props: { classes: any }) {
           </Typography>
           <div>
             <UpdateNotification />
+            <UserIcon/>
           </div>
         </Toolbar>
       </AppBar>
@@ -46,4 +48,4 @@ function ButtonAppBar(props: { classes: any }) {
   );
 }
 
-export default withStyles(styles)(ButtonAppBar);
+export default withStyles(styles)(AppMenuBar);

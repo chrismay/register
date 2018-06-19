@@ -1,11 +1,15 @@
 import * as React from "react";
 import Section from "../components/Section";
 import { List } from "@material-ui/core";
-import AppBar from "../components/AppBar";
+import { match } from "react-router";
+import BackNavBar from "../components/BackNavBar";
 
-const SectionsPage = () => (
+interface EventId {
+  id: string;
+}
+const EventPage = (props:{match: match<EventId>}) => (
   <div>
-    <AppBar />
+    <BackNavBar label={props.match.params.id}/>
     <List>
       <Section name="cornets" label="Cornets" />
       <Section name="horns" label="Horns" />
@@ -17,4 +21,4 @@ const SectionsPage = () => (
   </div>
 );
 
-export default SectionsPage;
+export default EventPage;

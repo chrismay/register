@@ -7,7 +7,7 @@ import BackNavBar from "../components/BackNavBar";
 interface SectionId {
   section: string;
 }
-const PeoplePage = (props: { match: match<SectionId> }) => {
+const SectionPage = (props: { match: match<SectionId> }) => {
   return (
     <div>
       <BackNavBar label={props.match.params.section} />
@@ -21,4 +21,4 @@ const PeoplePage = (props: { match: match<SectionId> }) => {
   );
 };
 
-export default PeoplePage;
+export default SectionPage;
