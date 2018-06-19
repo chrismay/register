@@ -20,7 +20,7 @@ const EventListPage = (props: Props) => {
         variant="fab"
         color="primary"
         aria-label="add"
-        style={{ position: "absolute", bottom: 80, right: 20 }}
+        style={{ position: "absolute", bottom: 65, right: 20 }}
         onClick={()=>props.dispatch(addEvent())}
       >
         <AddIcon />
