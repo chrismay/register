@@ -3,27 +3,31 @@ import { List, Button } from "@material-ui/core";
 import Event from "../components/Event";
 import AppMenuBar from "../components/AppMenuBar";
 import AddIcon from "@material-ui/icons/Add";
-const EventListPage = () => {
+import { connect } from "react-redux";
+import {  ConnectedReduxProps, RegisterAppState } from "../domain";
+import { addEvent, EventActions, EventListState } from "../domain/Events";
+
+type Props=   ConnectedReduxProps<EventActions> & EventListState
+
+const EventListPage = (props: Props) => {
   return (
     <div>
       <AppMenuBar />
       <List>
-        <Event id="1" label="01/06/2018" />
-        <Event id="2" label="02/06/2018" />
-        <Event id="3" label="03/06/2018" />
-        <Event id="4" label="04/06/2018" />
-        <Event id="5" label="05/06/2018" />
+        {props.events.map(e=> <Event key={e.id} id={e.id} label={e.label} />)}       
       </List>
       <Button
-          variant="fab"
-          color="primary"
-          aria-label="add"
-          style={{ position: "absolute", bottom: 80, right: 20 }}
-        >
-          <AddIcon />
-        </Button>
+        variant="fab"
+        color="primary"
+        aria-label="add"
+        style={{ position: "absolute", bottom: 80, right: 20 }}
+        onClick={()=>props.dispatch(addEvent())}
+      >
+        <AddIcon />
+      </Button>
     </div>
   );
 };
+const mapStateToProps:(state: RegisterAppState)=> EventListState = state=>  state.events;
 
-export default EventListPage;
+export default connect(mapStateToProps)(EventListPage);

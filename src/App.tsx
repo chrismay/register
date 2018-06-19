@@ -6,7 +6,6 @@ import { BottomNavigation, BottomNavigationAction } from "@material-ui/core";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import { withRouter } from "react-router";
 
-
 const AppComponent = () => {
   return (
     <>
@@ -29,7 +28,6 @@ const AppComponent = () => {
     </>
   );
 };
-
 
 const App = withRouter(AppComponent);
 export default App;
